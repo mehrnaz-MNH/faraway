@@ -3,20 +3,13 @@ import { Item } from './item'
 
 
 export const PackingList = ({ listItems, onDeleteItem, onToggleItem }) => {
-    function handleOnToggle(id) {
 
-
-
-
-
-
-    }
     return (
         <div className="list">
 
             <ul >
                 {listItems.map(item =>
-                    <Item props={item} />
+                    <Item props={item} onDelete={onDeleteItem} onDone={onToggleItem} />
                 )}
 
 
