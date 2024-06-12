@@ -6,11 +6,20 @@ export const PackingList = ({ listItems, onDeleteItem, onToggleItem, onClearList
 
     const [selectOrder, setSelectedOrder] = useState("input");
 
+    let sortedlist;
+
+    if (selectOrder == "description")
+        sortedlist = listItems.slice().sort((a, b) => a.description.localeCompare(b.description));
+
+    if (selectOrder == "input") sortedlist = listItems;
+
+    if (selectOrder == "packed") sortedlist = listItems.slice().sort((a, b) => Number(a.packed) - Number(b.packed));
+
     return (
         <div className="list">
 
             <ul >
-                {listItems.map(item =>
+                {sortedlist.map(item =>
                     <Item props={item} onDelete={onDeleteItem} onDone={onToggleItem} />
                 )}
 
