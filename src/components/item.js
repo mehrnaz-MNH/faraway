@@ -3,7 +3,7 @@ import React from 'react'
 
 export const Item = ({ props, onDelete, onDone }) => {
     return (
-        <li>
+        <li key={props.id}>
             <input type="checkbox" value={props.packed} onChange={() => onDone(props.id)} />
             <span style={props.packed ? { "text-decoration-line": "line-through" } : {}}>{props.quantity} {props.description}</span>
             <button onClick={() => onDelete(props.id)}>❌</button>

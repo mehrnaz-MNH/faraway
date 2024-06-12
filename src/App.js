@@ -35,6 +35,14 @@ function App() {
       prevItemsList.filter(item => item.id !== id));
 
   }
+  function handleClearList() {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete all items?"
+    );
+
+    if (confirmed) setItemsList([]);
+
+  }
 
   console.log(itemsList)
 
@@ -43,7 +51,7 @@ function App() {
     <div className="app">
       <Logo />
       <Form onAddItem={handleAddItem} />
-      <PackingList listItems={itemsList} onDeleteItem={handleDeleteItem} onToggleItem={handleToggleItem} />
+      <PackingList listItems={itemsList} onDeleteItem={handleDeleteItem} onToggleItem={handleToggleItem} onClearList={handleClearList} />
       <Stats list={itemsList} />
 
 
