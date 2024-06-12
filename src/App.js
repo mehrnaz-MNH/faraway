@@ -4,7 +4,7 @@ import './App.css';
 import { Logo } from './components/logo';
 import { Form } from './components/form';
 import { PackingList } from './components/packingList';
-import { stats } from './components/stats';
+import { Stats } from './components/stats';
 
 import { useState } from 'react';
 
@@ -44,7 +44,7 @@ function App() {
       <Logo />
       <Form onAddItem={handleAddItem} />
       <PackingList listItems={itemsList} onDeleteItem={handleDeleteItem} onToggleItem={handleToggleItem} />
-
+      <Stats list={itemsList} />
 
 
     </div>

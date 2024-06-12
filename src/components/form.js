@@ -19,21 +19,21 @@ export const Form = ({ onAddItem }) => {
 
     const numbers = Array.from({ length: 20 }, (_, i) => i + 1)
     return (
-        <div className="add-form">
+        <form className="add-form" onSubmit={handleSubmit} >
 
             <h3>What Do You Need For Your Trip?</h3>
-            <form onSubmit={handleSubmit} >
-                <select
-                    value={selectedQuant}
-                    onChange={e => setQuant(parseInt(e.target.value, 10))}
-                >
-                    {numbers.map((number) =>
-                        <option key={number} value={number}>{number}</option>
-                    )}
-                </select>
-                <input type="text" value={desc} onChange={e => setdesc(e.target.value)} />
-                <button type="submit">Add</button>
-            </form>
-        </div>
+
+            <select
+                value={selectedQuant}
+                onChange={e => setQuant(parseInt(e.target.value, 10))}
+            >
+                {numbers.map((number) =>
+                    <option key={number} value={number}>{number}</option>
+                )}
+            </select>
+            <input type="text" value={desc} onChange={e => setdesc(e.target.value)} />
+            <button type="submit">Add</button>
+
+        </form>
     )
 }
